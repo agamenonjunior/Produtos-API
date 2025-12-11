@@ -4,6 +4,7 @@ import io.github.agamenonjunior.produtosapi.model.Produto;
 import io.github.agamenonjunior.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -32,6 +33,17 @@ public class ProdutoController {
         produto.setId(id);
         produtoRepository.save(produto);
         return produto;
+
+    }
+
+    @GetMapping("/{id}")
+    public Produto obterProdutoPorId(@PathVariable("id") String id){
+//        Optional<Produto> produto = produtoRepository.findById(id);
+//        return produto.isPresent() ? produto.get():null;
+
+        return produtoRepository.findById(id).orElse(null);
+
+
 
     }
 
