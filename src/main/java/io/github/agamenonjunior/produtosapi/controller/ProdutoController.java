@@ -4,7 +4,7 @@ import io.github.agamenonjunior.produtosapi.model.Produto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("produtos")
+@RequestMapping("/produtos")
 public class ProdutoController {
 
     @GetMapping("")
@@ -13,8 +13,11 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public void salvar (@RequestBody Produto produto){
+    public Produto salvar (@RequestBody Produto produto){
+
         System.out.println("Produto recebido" + produto);
+        return produto;
+
     }
 
 }
