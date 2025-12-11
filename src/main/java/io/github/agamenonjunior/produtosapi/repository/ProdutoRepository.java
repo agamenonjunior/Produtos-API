@@ -1,0 +1,10 @@
+package io.github.agamenonjunior.produtosapi.repository;
+
+import io.github.agamenonjunior.produtosapi.model.Produto;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProdutoRepository extends JpaRepository<Produto, String> {
+
+
+
+}

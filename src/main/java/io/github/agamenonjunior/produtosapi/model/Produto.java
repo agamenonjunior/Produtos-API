@@ -9,6 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "produto")
 public class Produto {
+
     @Id
     @Column(name = "codigo")
     private String id;
@@ -19,7 +20,7 @@ public class Produto {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "preco",)
+    @Column(name = "preco")
     private Double preco;
 
     public String getId() {
