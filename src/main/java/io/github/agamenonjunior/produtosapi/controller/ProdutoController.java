@@ -4,6 +4,7 @@ import io.github.agamenonjunior.produtosapi.model.Produto;
 import io.github.agamenonjunior.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,11 +18,11 @@ public class ProdutoController {
         this.produtoRepository = produtoRepository;
     }
 
-    @GetMapping("")
-    public String listar(){
-        return "Lista de produtos";
-    }
 
+    @GetMapping("")
+    public List<Produto> listar(@RequestParam("nome") String nome){
+        return produtoRepository.findByNome(nome);
+    }
 
 
 
@@ -56,5 +57,6 @@ public class ProdutoController {
             produto.setId(id);
             produtoRepository.save(produto);
     }
+
 
 }
